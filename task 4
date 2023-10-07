@@ -1,0 +1,54 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class GradebookTester {
+    private Gradebook gradebook1;
+    private Gradebook gradebook2;
+
+    @Before
+    public void setUp() throws Exception {
+        gradebook1 = new Gradebook(5);
+        gradebook2 = new Gradebook(5);
+        
+        gradebook1.addScore(85);
+        gradebook1.addScore(92);
+        
+        gradebook2.addScore(78);
+        gradebook2.addScore(90);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        gradebook1 = null;
+        gradebook2 = null;
+    }
+    
+    @Test
+    public void testAddScore() {
+        assertTrue(gradebook1.toString().equals("85 92 "));
+        assertTrue(gradebook2.toString().equals("78 90 "));
+        assertEquals(2, gradebook1.getScoreSize());
+        assertEquals(2, gradebook2.getScoreSize());
+    }
+    
+    @Test
+    public void testSum() {
+        assertEquals(177, gradebook1.sum());
+        assertEquals(168, gradebook2.sum());
+    }
+    
+    @Test
+    public void testMinimum() {
+        assertEquals(85, gradebook1.minimum());
+        assertEquals(78, gradebook2.minimum());
+    }
+    
+    @Test
+    public void testFinalScore() {
+        assertEquals(92, gradebook1.finalScore());
+        assertEquals(90, gradebook2.finalScore());
+    }
+}
