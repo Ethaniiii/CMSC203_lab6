@@ -1,0 +1,22 @@
+public class Gradebook {
+    private int[] scores;
+    private int scoreSize;
+
+    // Existing constructor and other methods...
+
+    public int getScoreSize() {
+        return scoreSize;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < scoreSize; i++) {
+            sb.append(scores[i]);
+            if (i < scoreSize - 1) {
+                sb.append(" ");
+            }
+        }
+        return sb.toString();
+    }
+}
