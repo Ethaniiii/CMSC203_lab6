@@ -1,0 +1,30 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class GradebookTester {
+    private Gradebook gradebook1;
+    private Gradebook gradebook2;
+
+    @Before
+    public void setUp() throws Exception {
+        gradebook1 = new Gradebook(5);
+        gradebook2 = new Gradebook(5);
+        
+        gradebook1.addScore(85);
+        gradebook1.addScore(92);
+        
+        gradebook2.addScore(78);
+        gradebook2.addScore(90);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        gradebook1 = null;
+        gradebook2 = null;
+    }
+    
+    // Test methods will be added in Task #4
+}
